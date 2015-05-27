@@ -17,4 +17,9 @@ y los metodos a estudiar son:
 5. ecuaciones diferenciales parciales,
 6. y metodos de monte carlo.
  
-% area de stagin: git add 
+Instrucciones para crear mark down por primera vez: 
+1. EditorPreferido Nombre.md
+2.  git add Nombre.md
+3.  git status
+4.  git commit 
+5.  git push origin master
