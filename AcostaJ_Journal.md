@@ -1,4 +1,4 @@
-% Primera Clase 27-May-2015
+# Primera Clase 27-May-2015
 
 Hola Mundo!, aqui estoy comenzando el curso de **metodos computacionales**.
 
@@ -23,3 +23,5 @@ Instrucciones para crear mark down por primera vez:
 3.  git status
 4.  git commit 
 5.  git push origin master
+
+# Segunda Clase 29 -May-2015 
