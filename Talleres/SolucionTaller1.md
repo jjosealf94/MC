@@ -12,8 +12,8 @@ El electromagnetismo es considerado como una de las cuatro fuerzas fundamentales
 
 Desde la antigua Grecia se conocían los fenómenos magnéticos y eléctricos pero no es hasta inicios del siglo XVII donde se comienza a realizar experimentos y a llegar a conclusiones científicas de estos fenómenos.1 Durante estos dos siglos, XVII y XVIII, grandes hombres de ciencia como:
 
-+William Gilbert, 
-+Otto von Guericke,
++ William Gilbert, 
++ Otto von Guericke,
 + Stephen Gray,
 + Benjamin Franklin,
 + Alessandro Volta. 
