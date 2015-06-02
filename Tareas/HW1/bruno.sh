@@ -3,7 +3,8 @@
 
 ## clear consola
 clear
-
+## Download the requiered files
+wget -q https://raw.githubusercontent.com/ComputoCienciasUniandes/MetodosComputacionales/master/homework/2015-V/HW1/kepler.csv
 ## Print a title 
 echo "Planetas extrasolares" | figlet
 
@@ -26,8 +27,8 @@ printf "Cantidad de planetas reportados en kepler.csv: %d\n" "$total"
 ## Print divider  to match 
 printf "%$totalwidth.${totalwidth}s\n" "$divider"
 
-name=$(awk -F "," '{if ($2<0.01 && $2 >=0) {print $1}}' kepler.csv)
-number=$(awk -F "," '{if ($2<0.01 && $2 >=0) {print $1}}' kepler.csv| wc -l)
+name=$(awk -F "," '{if ($2<0.01 && $2 >0) {print $1}}' kepler.csv)
+number=$(awk -F "," '{if ($2<0.01 && $2 >0) {print $1}}' kepler.csv| wc -l)
 
 printf "The number of the planets that satisfice the condition is: %s\n" "$number"
 echo "The name of the planets are:"
@@ -48,8 +49,9 @@ echo "the information of the planet with lower period is:"
 ## Show the information
 grep $lower kepler.csv  
 
-## remove the extra files
+## remove the all the extra files
 rm ordenados.csv
 rm periodos.csv
+rm kepler.csv
 ## Print divider  to match 
 printf "%$totalwidth.${totalwidth}s\n" "$divider"
