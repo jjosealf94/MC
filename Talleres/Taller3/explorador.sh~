@@ -1,0 +1,6 @@
+#!/bin/bash 
+
+for file in $(ls ~ls/Documentos/c-examples/src/)
+do 
+echo "nombre del archivo: $file
+done
