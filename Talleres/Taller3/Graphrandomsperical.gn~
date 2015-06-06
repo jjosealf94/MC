@@ -1,4 +1,0 @@
-#!/opt/local/bin/gnuplot
-set datafile separator ","
-set view equal xyz
-splot "randomspherical.dat" using 1:2:3
