@@ -1,8 +1,11 @@
-# Primera Clase 27-May-2015
+#Primera semana
+
+##Clase 27-May-2015
 
 Hola Mundo!, aqui estoy comenzando el curso de **metodos computacionales**.
 
-Herramientas del curso: 
+_Herramientas del curso_:
+ 
 + Git,
 + GitHub,
 + C,
@@ -16,15 +19,44 @@ y los metodos a estudiar son:
 4. ecuaciones diferenciales ordinarias,
 5. ecuaciones diferenciales parciales,
 6. y metodos de monte carlo.
- 
-Instrucciones para crear mark down por primera vez: 
-1. EditorPreferido Nombre.md
-2.  git add Nombre.md
-3.  git status
-4.  git commit 
-5.  git push origin master
 
-# Segunda Clase 29 -May-2015 
+Aproximación al manejo de la **consola** en LINUX. Algunos comandos usados fueron
+
+
+|Comando       |             Función               |
+|:-------------|:----------------------------------|
+|ls            | listar las directorios y archivos |
+|cd            | Cambiar directorio                |
+|sed           | Edición de archivos               |
+|awk           | Manipulación de archivos          |
+|rm            | Elimina archivos                  |         
+|mkdir         | Crea directorios                  |
+|rmdir         | Elimina directorios               |
+|curl          | Descargar el codigo fuente        |
+|wget          | Descargar archivos                |
+
+
+Instrucciones para **subir a Github** un markdown
+
+0. git pull
+1. git add Nombre.md
+2. git status
+3. git commit 
+4. git push origin master
+
+Conectarse a un **computador remoto**
+
+```
+ssh usuario@computador
+```
+
+
+##Clase 29-May-2015 
+
+###Laboratorio
+Se realizó el primer taller de laboratorio, para lo cual se tenía que haber leído las lecturas recomendadas. El taller trató sobre Markdown, Bash y Git.
+
+
 
 # Tercera Clase 2-Jun-2015
 
@@ -39,3 +71,17 @@ Instrucciones para crear mark down por primera vez:
 ^.{4}
 
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
