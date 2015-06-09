@@ -1,7 +1,7 @@
 #Primera semana
 
-##Clase 27-May-2015
-
+##27-May-2015
+###Clase
 Hola Mundo!, aqui estoy comenzando el curso de **metodos computacionales**.
 
 _Herramientas del curso_:
@@ -51,13 +51,14 @@ ssh usuario@computador
 ```
 
 
-##Clase 29-May-2015 
+##29-May-2015 
 
 ###Laboratorio
-Se realizó el primer taller de laboratorio, para lo cual se tenía que haber leído las lecturas recomendadas. El taller trató sobre Markdown, Bash y Git. 
+Se realizó el primer taller de laboratorio, para lo cual se tenía que haber leído las lecturas recomendadas. El taller trató sobre Markdown, Bash y Git. El taller puede ser encontrado [aquí](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller1/Taller1.md)
 
 La respectiva solución puede ser econtrada [aquí](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller1/SolucionTaller1.md), mientras que los ejecutables de la solución [aquí](https://github.com/jjosealf94/MC/tree/master/Talleres/Taller1).
 
+###Clase
 
 
 # Tercera Clase 2-Jun-2015
