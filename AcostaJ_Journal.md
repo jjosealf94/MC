@@ -70,7 +70,7 @@ En la clase se empezó a realizar el **HandsOn 1** el cual contenía manejo de G
 > Funcionamiento del scripts bashmatrix.sh
 
 
-![alt text](/home/jose/Documentos/Imagenes/HO1_matrix.png)
+![alt text](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO1_matrix.png)
 
 ##2-Jun-2015
 
