@@ -65,12 +65,15 @@ En la clase se empezó a realizar el **HandsOn 1** el cual contenía manejo de G
 
 >HO1.1: se encontró que el segundo commit fue realizado el _5 de enero de 2013 a las 19:28:57_ y el tema de la  semana 15 fue _Interferencia Bayesiana_ 
 
-+ _Bash_ : Se exploró el uso de **awk** y el de los **loops** en bash. En donde se aprendió a mejorar el uso de condicionales y variables de bash dentro de awk usando `awk -F "," -v var=$varbash '{if(var==condición){Acción a realizar}}' nombreArchivo`. Creación de _csv_ y _tsv_ usando for, generación de una **matriz nxn** e imprimirla en pantalla. Finalmente se utilizó _curl_ y _sed_ para realizar una pequeña araña en la página del **El tiempo**
++ _Bash_ : Se exploró el uso de **awk** y el de los **loops** en bash. En donde se aprendió a mejorar el uso de condicionales y variables de bash dentro de awk usando `awk -F "," -v var=$varbash '{if(var==condición){Acción a realizar}}' nombreArchivo`. Se aprendió a crear _csv_ y _tsv_ usando for, generación de una **matriz nxn** e imprimirla en pantalla. Finalmente se utilizó _curl_ y _sed_ para realizar una pequeña araña en la página del **El tiempo**. Los scripts los puede encontrar [aquí](https://github.com/jjosealf94/Scripts/tree/master/HandsOn1)
 
 > Funcionamiento del scripts bashmatrix.sh
 
-
 ![alt text](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO1_matrix.png)
+
+>Funcionamiento del script eltiempo.sh
+
+![alt text](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO1_eltiempo.png)
 
 ##2-Jun-2015
 
