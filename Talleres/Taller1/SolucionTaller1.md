@@ -62,6 +62,7 @@ do
 ii=$((i**2))
 echo "$i, $ii">>numeros.csv
 done
+echo "numeros.csv creado"
 ```
 
 ## Tercer punto: Suma de columnas
@@ -71,6 +72,7 @@ done
 #: Description: Take two colums with awk and do the sum
 
 awk -F "," '{print $1+$2}' numeros.csv > suma.dat
+echo "suma.dat creado"
 ```
 
 ## Cuarto punto: Lectura de números
@@ -126,6 +128,9 @@ wget https://raw.githubusercontent.com/ComputoCienciasUniandes/MetodosComputacio
 head -10 hyg.csv 
 sed 's/,/\t/g' hyg.csv > hyg.tsv
 head -10 hyg.tsv
+rm hyg.tsv
+rm hyg.csv
+
 ```
 ## Noveno punto: manchas solares
 ```
