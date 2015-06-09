@@ -1,4 +1,5 @@
 # Solucion Taller 1
+Los scripts de este taller pueden ser encontrados [aquí](https://github.com/jjosealf94/MC/tree/master/Talleres/Taller1)
 
 ##Primer punto: Electromagnétismo 
 
