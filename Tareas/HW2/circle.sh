@@ -1,5 +1,9 @@
 #!/bin/bash
-#: Description : This script print a circle with a given radius 
+#: Description : This script print a circle with a given radius r between (0-1) 
+
+# The terminal is dumb for stdout terminal
+# xtics: x axis and ytics: y axis 
+# xrange and yrange between -1:1 for a rectangle center in 0 
 
 gnuplot <<EOF
 set term dumb
