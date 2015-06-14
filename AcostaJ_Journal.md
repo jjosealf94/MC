@@ -58,6 +58,8 @@ Se realizó el primer taller de laboratorio, para lo cual se tenía que haber le
 
 La respectiva solución puede ser econtrada [aquí](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller1/SolucionTaller1.md), mientras que los ejecutables de la solución [aquí](https://github.com/jjosealf94/MC/tree/master/Talleres/Taller1).
 
+* 
+
 ###Clase
 En la clase se empezó a realizar el **HandsOn 1** el cual contenía manejo de Git, Bash y Pandoc. [HOn1](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-1.md)
 
@@ -75,22 +77,67 @@ En la clase se empezó a realizar el **HandsOn 1** el cual contenía manejo de G
 
 ![alt text](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO1_eltiempo.png)
 
-+ _Pandoc_ : Pandoc es un programa capaz de convertir lenguaje de marcas en _casi_ cualquier otro formato, desarrolado por John MacFarlane profesor de filosofía de la Universidad de Berkeley. Es una librería de Haskell que permite la integración en el **código** de otros programas. Se puede usar así `pandoc -o output.ext -i input.md`, [aquí](http://en.wikipedia.org/wiki/Pandoc#Supported_File_Formats) una lista de los formatos soportados por pandoc.
++ _Pandoc_ : Pandoc es un programa capaz de convertir lenguaje de marcas en _casi_ cualquier otro formato, desarrollado por John MacFarlane profesor de filosofía de la Universidad de Berkeley. Es una librería de Haskell que permite la integración en el **código** de otros programas. Se puede usar así `pandoc -o output.ext -i input.md`, [aquí](http://en.wikipedia.org/wiki/Pandoc#Supported_File_Formats) una lista de los formatos soportados por pandoc.
 
 ##2-Jun-2015
 
 ###Clase
- Hands-on 2
+**Expresiones regulares:** Una expresión regular es un patrón que describe un conjunto de cadenas de caracteres. Las expresiones regulares permiten realizar busquedas y remplazos de gran complejidad. 
 
-### Expresiones regulares
-1. Construcción de una expresión regular de 4 cualesquiera caracteres: 
-``` 
-#!/bin/bash 
-#: Desciption : Agrega una expresion regular de cuatro cualesquiera caracteres 
+La construcción de expresiones regulares depende de la asignación de significado especial a algunos caracteres, los cuales son denominados **metacaracteres.**
 
-^.{4}
+
+|ER        | Significado                                 |
+|:---------|:--------------------------------------------|
+|.         | Cualquier caracter                          |
+|[]        | Cualquier caracter dentro (admite listas)   |
+|[^]       | Cualquier caracter que NO esté dentro       |
+|^         | Principio de línea                          |
+|$         | Fin de línea                                |
+|*         | Cero o más ocurrencias de la ER anterior    |
+|\         | Escapa un metacaracter                      |
+|corchetes | Número dado de cualquier ER                 |
+|+         | Una o más ocurrencia de la ER anterior      |
+|?         | Cero o una ocurrecia de la ER anterior      |
+|(pipe)    | Permite alternar entre dos ER               |
+|()        | Las ER dentro quedan etiquetadas (Ej \1)    |
+|[:space:] | Espacios en blanco( \t \r \v \n ...)        |
+
+
+Se empezó a realizar el **HandsOn 2** el cual contenía manejo de Expresiones regulares y Gnuplot. [HOn2](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-2.md) /
+
+* Expresiones regulares: 
+
+>ER.1: Cuatro caracteres al inicio `^.{4}`
 
 ```
+ER.2: Forteando el archivo de eventos del tiempo
+
+sed -i -E 's/^ +//g' Timelineofmodernhistory.txt
+sed -i -E 's/See also:.*//g' Timelineofmodernhistory.txt
+sed -i -E '/^$/d' Timelineofmodernhistory.txt
+sed -i -E 's/^....s//g' Timelineofmodernhistory.txt
+sed -i -E '/^$/d' Timelineofmodernhistory.txt
+sed -i -E 's/([0-9]): /\1:\t/g' Timelineofmodernhistory.txt
+
+```
+ER.3: Se descargó los primeros 10 millones dígitos y se redirigió a pi.txt `curl http://Pi.Karmona.com > pi.txt` 
+```
+#!/bin/bash
+#: Description : This script gives to the file pi.txt the format 
+sed -i -E 's/<BR>//g' pi.txt
+sed -i -E 's/<\/center><\/BODY><\/HTML>//g' pi.txt
+sed -i -E 's/<HTML><TITLE>Pi - 10 Million Digits \@ http:\/\/Pi\.Karmona\.com<\/TITLE><BODY>//g' pi.txt
+sed -i -E 's/<CENTER><B>Pi - 10 Million Digits<\/B><B>//g' pi.txt
+sed -i -E 's/<\/B>//g' pi.txt
+sed -i -E 's/<B>//g' pi.txt
+sed -E 's/(.{20})/\1\n/g' pi.txt > PIslices20.dat
+
+```
+ER.4: Finalmente utilizando grep se buscó si el teléfono aparecía entre los dígitos:
+![alt text](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HOn2_TelefonoEnPi.png)
+
+* Gnuplot:
 
 
 
