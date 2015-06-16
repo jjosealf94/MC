@@ -1,4 +1,7 @@
 #Solucion Taller3 5-Jun-2015
+
+Los scripts correspondientes pueden ser encontrados [aquí](https://github.com/jjosealf94/MC/tree/master/Talleres/Taller3)
+
 ##Punto 1
 ```
 #!/bin/bash 
