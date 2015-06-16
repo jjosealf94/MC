@@ -210,15 +210,19 @@ Se empezó a realizar el segundo taller de laboratorio, el cual contenía ejerci
 Los ejecutables pueden ser encontrados [aquí.](https://github.com/jjosealf94/MC/tree/master/Talleres/Taller2)
 
 ##Clase
-Se continuó con el aprendizaje de Gnuplot, donde se aprendieron comandos útiles para personalizar una gUafica. 
+Se continuó con el aprendizaje de Gnuplot, donde se aprendieron comandos útiles para personalizar una gráfica. 
 
-_Varias gráficas en un mismo plot _ 
+
+_Varias gráficas en un mismo plot_ 
+
 
 ```
 plot [-3:3] sin(x)/x, exp(-x**2/2) 
 
 ```
+
 _Definiendo funciones_
+
 
 ```
 f(x) = exp(-x**2/2)
@@ -226,7 +230,7 @@ plot [-10:10] f(x)
 
 ```
 
-_Agregando titulos, etiquetas, leyendas y cuadriculas _
+_Agregando titulos, etiquetas, leyendas y cuadriculas_
 
 ```
 set title "Gausiana"
@@ -236,7 +240,9 @@ set grid
 plot f(x)
 
 ```
+
 _Barras de error y "using"_ (numeros.csv en carpeta Taller1)
+
 
 ```
 plot [0:100] "numeros.csv" using 1:2 with yerrosbars
@@ -245,7 +251,9 @@ plot [0:100] "numeros.csv" using 1:2 with yerrosbars
 
 
 _Ajustes de curvas_ 
+
 Son necesarios para ajustar nuestros datos a una curva. Para el siguiente uso del ajuste se usó el archivo [cavendish.data](http://www.cs.hmc.edu/~vrable/gnuplot/cavendish.data)
+
 
 ```
  theta(t) = theta0 + a * exp(-t / tau) * sin(2 * pi * t / T + phi)
@@ -258,26 +266,82 @@ Son necesarios para ajustar nuestros datos a una curva. Para el siguiente uso de
  plot "cavendish.data" title "Cavendish Experiment" with yerrorbars, theta(x) title "Best-Fit Curve"
 
 ```
-Para más información [referencia.](http://www.cs.hmc.edu/~vrable/gnuplot/using-gnuplot.html) 
 
 ![alt text](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/cavendishExperiment.png)
 
+Para más información [referencia.](http://www.cs.hmc.edu/~vrable/gnuplot/using-gnuplot.html) 
 
-En clase se realizaron ejemplos de como limpiar un html usando _w3m_ y además se mostró como usando _curl_ descargar información de la tasa de cambio del dolar a peso y se realizó con gnuplot la respectiva gráfica. El ejemplo es útil porque muestra como graficar cuándo se tienen series de tiempo y además de limpiar usando  sed un html, puede ser encontrado en la carpeta "examples" con el nombre dollar.sh.
 
-Finalmente se realiazó un ajuste de curva lineal sobre la Ley de hubble, el ejemplo puede ser encontrado en la carpeta "examples".
+En clase se realizaron ejemplos de como limpiar un html usando _w3m_ y además se mostró como usando _curl_ descargar información de la tasa de cambio del dolar a peso y se realizó con gnuplot la respectiva gráfica. El ejemplo es útil porque muestra como graficar cuándo se tienen series de tiempo y además de limpiar usando  sed un html, puede ser encontrado en la carpeta "examples" con el nombre dollar.sh. Finalmente se realiazó un ajuste de curva lineal sobre la Ley de hubble, el ejemplo puede ser encontrado en la carpeta "examples".
+
 
 ##5-Jun-2015
 
+###Laboratorio
+
+Durante la clase de laboratorio se trabajó en el tercer taller, el cuál contenía ejercicios sobre manejo de bash,gnuplot y c. El enunciado puede ser encontrado [aquí](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller3/Taller3.md), mientras que la respectiva solución [aquí](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller3/SolucionTaller3.md).
+
+Los scripts correspondientes se pueden encontrar en la [carpeta](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller3)
+
+###Clase
+
+Durante la clase se retomó otra vez c donde se recordó la forma para realizar funciones y demás, se realizó un resumen de python. En el cual se habló de la _filosofía_ del lenguaje: 
+
+* Readability counts.
+* Beautiful is better than ugly
+* Simple is better than complex
+* Explicit is better than implicit
+* Complex is better than complicated
+
+Python es un lenguaje de programación interpretado, puede ser clasificado en un lenguaje **multiparadigma** ya que soporta orientación a objetos, programación imperativa y programación funcional. Es administrado por la Python Software Foundation, posee una licencia de código abierto, denominada Python Software Foundation License. En python los objetos son una abstracción de los datos, así todos los datos en python son representados como objetos. Un **objeto** se compone de una _identidad_ y un tipo de _valor._ La indentación es esensial ya que permite saber la diferencia en bloques de código.
 
 
+|Operadores|Función            |  
+|:---------|:------------------|
+| +        | Suma              |
+| -        | Resta             |
+| *        | Producto          |
+| /        | División          |
+| %        | Residuo           |
+| //       | División piso     |
+| **       | Exponenciación    |
+| abs(x)   | Valor absoluto    |
+| float(x) | Conversión        |
+| int(x)   | Conversión        |
+| x[x]     | Indexando         |
+| len(s)   | Tamaño            |
+| str(x)   | Conversión        |
 
+Para pedir información en python `x=raw_input("Please enter x=")`, sigue siendo útil al momento de pedir listas ya que se puede usar el método `split()` para particionar elementos separados por espacios en blanco. En python las expresiones lógicas siguen siendo `==`,`!=`,`<` y etc. 
 
+_If and else_
 
+```
+if condition:
+    thing_to_do1
+    thing_to_do2
+else:
+    other_thing1
+    other_thing2
+```
 
+_while_
 
+```
+while condition:
+    thing_to_do1
+    thing_to_do2
 
+```
 
+_for_
+
+```#
+for i in iterableObj(listas,strings,arrays):
+     thing_to_do1
+```
+
+Luego se empezó a realizar el HandsOn 3, [HOn3](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-3.md), en donde se realizaron los ejercicios del libro The python workbook y pueden ser encontrados [aquí.](https://github.com/jjosealf94/MC/tree/master/python/exercises) El ejercicio de make quedo para el próximo Hands On. 
 
 
 
