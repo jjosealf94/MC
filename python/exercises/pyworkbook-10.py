@@ -1,4 +1,5 @@
-# Solucion ejercicio 10: 
+#!/usr/bin/python
+#: Description: Solucion ejercicio 10: 
 import numpy as np
 print "Solution of exercise 10"
 print "Please enter two numer:"
