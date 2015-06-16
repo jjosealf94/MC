@@ -56,9 +56,9 @@ ssh usuario@computador
 ###Laboratorio
 Se realizó el primer taller de laboratorio, para lo cual se tenía que haber leído las lecturas recomendadas. El taller trató sobre Markdown, Bash y Git. El taller puede ser encontrado [aquí](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller1/Taller1.md)
 
-La respectiva solución puede ser econtrada [aquí](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller1/SolucionTaller1.md), mientras que los ejecutables de la solución [aquí](https://github.com/jjosealf94/MC/tree/master/Talleres/Taller1).
+La respectiva **solución** puede ser econtrada [aquí](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller1/SolucionTaller1.md), mientras que los ejecutables de la solución [aquí](https://github.com/jjosealf94/MC/tree/master/Talleres/Taller1).
 
-* 
+
 
 ###Clase
 En la clase se empezó a realizar el **HandsOn 1** el cual contenía manejo de Git, Bash y Pandoc. [HOn1](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-1.md)
@@ -104,6 +104,35 @@ La construcción de expresiones regulares depende de la asignación de significa
 |[:space:] | Espacios en blanco( \t \r \v \n ...)        |
 
 
+**GnuPlot**: Es un programa especializado en generar gráficas, compatible con algunos sistemas operativos populares (Linux,MacOsx,Windows). Se distribuye bajo una licencia de software libre que permite la copia y modificación de su código fuente. Para más información [gnuplot homepage.](http://www.gnuplot.info/)
+ 
+ _Inicio en Gnuplot_
+ 
+ ```
+ set term dumb
+ plot [0:2*pi] sin(x)
+ set term 'qt'
+ plot [-10*pi:10*pi] sin(x)/x
+ 
+ ```
+ 
+ _Gráficas paramétricas_ 
+ 
+ ```
+ set term qt
+ set parametric
+ set size ratio 0.5 #Proporción
+ plot [0:2*pi] sin(t),cos(t)
+ 
+ ```
+ _Gráfica usando un archivo externo_
+ 
+```
+set datafile separator ","
+plot "filename.csv" using $1:$2
+
+```
+
 Se empezó a realizar el **HandsOn 2** el cual contenía manejo de Expresiones regulares y Gnuplot. [HOn2](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-2.md) /
 
 * Expresiones regulares: 
@@ -135,13 +164,43 @@ sed -E 's/(.{20})/\1\n/g' pi.txt > PIslices20.dat
 
 ```
 ER.4: Finalmente utilizando grep se buscó si el teléfono aparecía entre los dígitos:
-![alt text](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HOn2_TelefonoEnPi.png)
+![alt text](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO2_TelefonoEnPi.png)
 
-* Gnuplot:
+* Gnuplot: Para referencia sobre gnuplot entrar [aquí](http://www.cs.hmc.edu/~vrable/gnuplot/using-gnuplot.html)
 
+> Este script muestra la tercera ley de kepler usando los satelites de jupiter
 
+```
+#!/usr/bin/gnuplot
+# Description :  This script show Kepler's third law 
+set term qt
+set title "Kepler's third on Jupiter"
+set xlabel "a**3"
+set ylabel "T**2"
+unset key
+set datafile separator ","
+plot "joviansatellites.csv" using (($2)**3):(($3)**2) with linesp
+pause -1
 
+```
+> A continuación el script que realiza la gráfica de la Lemniscate of Bernoulli
 
+```
+#!/usr/bin/gnuplot
+#: Description: This script show the lemniscate of bernoulli
+
+set term dumb
+unset ytics
+unset xtics
+unset key
+set parametric
+y(t)=(cos(t)*sin(t))/(((sin(t))**2)+1)
+x(t)= cos(t)/(((sin(t))**2)+1)
+plot x(t),y(t)
+
+```
+
+![alt text](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO2_lemniscate.png)
 
 
 
