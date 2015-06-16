@@ -133,7 +133,7 @@ plot "filename.csv" using $1:$2
 
 ```
 
-Se empezó a realizar el **HandsOn 2** el cual contenía manejo de Expresiones regulares y Gnuplot. [HOn2](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-2.md) /
+Se empezó a realizar el **HandsOn 2** el cual contenía manejo de Expresiones regulares y Gnuplot [HOn2.](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-2.md) Los script de solución del HandsOn 2 se pueden encontrar [aquí](https://github.com/jjosealf94/Scripts/tree/master/HandsOn2)
 
 * Expresiones regulares: 
 
@@ -201,6 +201,84 @@ plot x(t),y(t)
 ```
 
 ![alt text](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO2_lemniscate.png)
+
+##3-Jun-2015
+
+###Laboratorio
+Se empezó a realizar el segundo taller de laboratorio, el cual contenía ejercicios sobre Bash, expresiones regulares y Gnuplot. El taller puede ser encontrado [aquí](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller2/Taller2.md), mientras que la respectiva **solución** detallada puede ser encontrada [aquí.](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller2/SolucionTaller2.md)
+
+Los ejecutables pueden ser encontrados [aquí.](https://github.com/jjosealf94/MC/tree/master/Talleres/Taller2)
+
+##Clase
+Se continuó con el aprendizaje de Gnuplot, donde se aprendieron comandos útiles para personalizar una gUafica. 
+
+_Varias gráficas en un mismo plot _ 
+
+```
+plot [-3:3] sin(x)/x, exp(-x**2/2) 
+
+```
+_Definiendo funciones_
+
+```
+f(x) = exp(-x**2/2)
+plot [-10:10] f(x) 
+
+```
+
+_Agregando titulos, etiquetas, leyendas y cuadriculas _
+
+```
+set title "Gausiana"
+set ylabel "Eje y"
+set xlabel "Eje x"
+set grid
+plot f(x)
+
+```
+_Barras de error y "using"_ (numeros.csv en carpeta Taller1)
+
+```
+plot [0:100] "numeros.csv" using 1:2 with yerrosbars
+
+```
+
+
+_Ajustes de curvas_ 
+Son necesarios para ajustar nuestros datos a una curva. Para el siguiente uso del ajuste se usó el archivo [cavendish.data](http://www.cs.hmc.edu/~vrable/gnuplot/cavendish.data)
+
+```
+ theta(t) = theta0 + a * exp(-t / tau) * sin(2 * pi * t / T + phi)
+ a = 40
+ tau = 15
+ phi = -0.5
+ T = 15
+ theta0 = 10
+ fit theta(x) "cavendish.data" using 1:2:3 via a, tau, phi, T, theta0
+ plot "cavendish.data" title "Cavendish Experiment" with yerrorbars, theta(x) title "Best-Fit Curve"
+
+```
+Para más información [referencia.](http://www.cs.hmc.edu/~vrable/gnuplot/using-gnuplot.html) 
+
+![alt text](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/cavendishExperiment.png)
+
+
+En clase se realizaron ejemplos de como limpiar un html usando _w3m_ y además se mostró como usando _curl_ descargar información de la tasa de cambio del dolar a peso y se realizó con gnuplot la respectiva gráfica. El ejemplo es útil porque muestra como graficar cuándo se tienen series de tiempo y además de limpiar usando  sed un html, puede ser encontrado en la carpeta "examples" con el nombre dollar.sh.
+
+Finalmente se realiazó un ajuste de curva lineal sobre la Ley de hubble, el ejemplo puede ser encontrado en la carpeta "examples".
+
+##5-Jun-2015
+
+
+
+
+
+
+
+
+
+
+
 
 
 
