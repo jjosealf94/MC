@@ -5,7 +5,7 @@
 Hola Mundo!, aqui estoy comenzando el curso de **metodos computacionales**.
 
 _Herramientas del curso_:
- 
+
 + Git,
 + GitHub,
 + C,
@@ -29,7 +29,7 @@ Aproximación al manejo de la **consola** en LINUX. Algunos comandos usados fuer
 |cd            | Cambiar directorio                |
 |sed           | Edición de archivos               |
 |awk           | Manipulación de archivos          |
-|rm            | Elimina archivos                  |         
+|rm            | Elimina archivos                  |
 |mkdir         | Crea directorios                  |
 |rmdir         | Elimina directorios               |
 |curl          | Descargar el codigo fuente        |
@@ -41,7 +41,7 @@ Instrucciones para **subir a Github** un markdown
 0. git pull
 1. git add Nombre.md
 2. git status
-3. git commit 
+3. git commit
 4. git push origin master
 
 Conectarse a un **computador remoto**
@@ -51,7 +51,7 @@ ssh usuario@computador
 ```
 
 
-##29-May-2015 
+##29-May-2015
 
 ###Laboratorio
 Se realizó el primer taller de laboratorio, para lo cual se tenía que haber leído las lecturas recomendadas. El taller trató sobre Markdown, Bash y Git. El taller puede ser encontrado [aquí](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller1/Taller1.md)
@@ -71,11 +71,11 @@ En la clase se empezó a realizar el **HandsOn 1** el cual contenía manejo de G
 
 > Funcionamiento del scripts bashmatrix.sh
 
-![alt text](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO1_matrix.png)
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO1_matrix.png)
 
 >Funcionamiento del script eltiempo.sh
 
-![alt text](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO1_eltiempo.png)
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO1_eltiempo.png)
 
 + _Pandoc_ : Pandoc es un programa capaz de convertir lenguaje de marcas en _casi_ cualquier otro formato, desarrollado por John MacFarlane profesor de filosofía de la Universidad de Berkeley. Es una librería de Haskell que permite la integración en el **código** de otros programas. Se puede usar así `pandoc -o output.ext -i input.md`, [aquí](http://en.wikipedia.org/wiki/Pandoc#Supported_File_Formats) una lista de los formatos soportados por pandoc.
 
@@ -105,28 +105,28 @@ La construcción de expresiones regulares depende de la asignación de significa
 
 
 **GnuPlot**: Es un programa especializado en generar gráficas, compatible con algunos sistemas operativos populares (Linux,MacOsx,Windows). Se distribuye bajo una licencia de software libre que permite la copia y modificación de su código fuente. Para más información [gnuplot homepage.](http://www.gnuplot.info/)
- 
+
  _Inicio en Gnuplot_
- 
+
  ```
  set term dumb
  plot [0:2*pi] sin(x)
  set term 'qt'
  plot [-10*pi:10*pi] sin(x)/x
- 
+
  ```
- 
- _Gráficas paramétricas_ 
- 
+
+ _Gráficas paramétricas_
+
  ```
  set term qt
  set parametric
  set size ratio 0.5 #Proporción
  plot [0:2*pi] sin(t),cos(t)
- 
+
  ```
  _Gráfica usando un archivo externo_
- 
+
 ```
 set datafile separator ","
 plot "filename.csv" using $1:$2
@@ -135,7 +135,7 @@ plot "filename.csv" using $1:$2
 
 Se empezó a realizar el **HandsOn 2** el cual contenía manejo de Expresiones regulares y Gnuplot [HOn2.](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-2.md) Los script de solución del HandsOn 2 se pueden encontrar [aquí](https://github.com/jjosealf94/Scripts/tree/master/HandsOn2)
 
-* Expresiones regulares: 
+* Expresiones regulares:
 
 >ER.1: Cuatro caracteres al inicio `^.{4}`
 
@@ -150,10 +150,10 @@ sed -i -E '/^$/d' Timelineofmodernhistory.txt
 sed -i -E 's/([0-9]): /\1:\t/g' Timelineofmodernhistory.txt
 
 ```
-ER.3: Se descargó los primeros 10 millones dígitos y se redirigió a pi.txt `curl http://Pi.Karmona.com > pi.txt` 
+ER.3: Se descargó los primeros 10 millones dígitos y se redirigió a pi.txt `curl http://Pi.Karmona.com > pi.txt`
 ```
 #!/bin/bash
-#: Description : This script gives to the file pi.txt the format 
+#: Description : This script gives to the file pi.txt the format
 sed -i -E 's/<BR>//g' pi.txt
 sed -i -E 's/<\/center><\/BODY><\/HTML>//g' pi.txt
 sed -i -E 's/<HTML><TITLE>Pi - 10 Million Digits \@ http:\/\/Pi\.Karmona\.com<\/TITLE><BODY>//g' pi.txt
@@ -164,7 +164,8 @@ sed -E 's/(.{20})/\1\n/g' pi.txt > PIslices20.dat
 
 ```
 ER.4: Finalmente utilizando grep se buscó si el teléfono aparecía entre los dígitos:
-![alt text](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO2_TelefonoEnPi.png)
+
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO2_TelefonoEnPi.png)
 
 * Gnuplot: Para referencia sobre gnuplot entrar [aquí](http://www.cs.hmc.edu/~vrable/gnuplot/using-gnuplot.html)
 
@@ -172,7 +173,7 @@ ER.4: Finalmente utilizando grep se buscó si el teléfono aparecía entre los d
 
 ```
 #!/usr/bin/gnuplot
-# Description :  This script show Kepler's third law 
+# Description :  This script show Kepler's third law
 set term qt
 set title "Kepler's third on Jupiter"
 set xlabel "a**3"
@@ -200,7 +201,7 @@ plot x(t),y(t)
 
 ```
 
-![alt text](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO2_lemniscate.png)
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO2_lemniscate.png)
 
 ##3-Jun-2015
 
@@ -210,14 +211,14 @@ Se empezó a realizar el segundo taller de laboratorio, el cual contenía ejerci
 Los ejecutables pueden ser encontrados [aquí.](https://github.com/jjosealf94/MC/tree/master/Talleres/Taller2)
 
 ##Clase
-Se continuó con el aprendizaje de Gnuplot, donde se aprendieron comandos útiles para personalizar una gráfica. 
+Se continuó con el aprendizaje de Gnuplot, donde se aprendieron comandos útiles para personalizar una gráfica.
 
 
-_Varias gráficas en un mismo plot_ 
+_Varias gráficas en un mismo plot_
 
 
 ```
-plot [-3:3] sin(x)/x, exp(-x**2/2) 
+plot [-3:3] sin(x)/x, exp(-x**2/2)
 
 ```
 
@@ -226,7 +227,7 @@ _Definiendo funciones_
 
 ```
 f(x) = exp(-x**2/2)
-plot [-10:10] f(x) 
+plot [-10:10] f(x)
 
 ```
 
@@ -250,7 +251,7 @@ plot [0:100] "numeros.csv" using 1:2 with yerrosbars
 ```
 
 
-_Ajustes de curvas_ 
+_Ajustes de curvas_
 
 Son necesarios para ajustar nuestros datos a una curva. Para el siguiente uso del ajuste se usó el archivo [cavendish.data](http://www.cs.hmc.edu/~vrable/gnuplot/cavendish.data)
 
@@ -267,9 +268,10 @@ Son necesarios para ajustar nuestros datos a una curva. Para el siguiente uso de
 
 ```
 
-![alt text](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/cavendishExperiment.png)
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/cavendishExperiment.png)
 
-Para más información [referencia.](http://www.cs.hmc.edu/~vrable/gnuplot/using-gnuplot.html) 
+
+Para más información [referencia.](http://www.cs.hmc.edu/~vrable/gnuplot/using-gnuplot.html)
 
 
 En clase se realizaron ejemplos de como limpiar un html usando _w3m_ y además se mostró como usando _curl_ descargar información de la tasa de cambio del dolar a peso y se realizó con gnuplot la respectiva gráfica. El ejemplo es útil porque muestra como graficar cuándo se tienen series de tiempo y además de limpiar usando  sed un html, puede ser encontrado en la carpeta "examples" con el nombre dollar.sh. Finalmente se realiazó un ajuste de curva lineal sobre la Ley de hubble, el ejemplo puede ser encontrado en la carpeta "examples".
@@ -285,7 +287,7 @@ Los scripts correspondientes se pueden encontrar en la [carpeta](https://github.
 
 ###Clase
 
-Durante la clase se retomó otra vez c donde se recordó la forma para realizar funciones y demás, se realizó un resumen de python. En el cual se habló de la _filosofía_ del lenguaje: 
+Durante la clase se retomó otra vez c donde se recordó la forma para realizar funciones y demás, se realizó un resumen de python. En el cual se habló de la _filosofía_ del lenguaje:
 
 * Readability counts.
 * Beautiful is better than ugly
@@ -296,7 +298,7 @@ Durante la clase se retomó otra vez c donde se recordó la forma para realizar 
 Python es un lenguaje de programación interpretado, puede ser clasificado en un lenguaje **multiparadigma** ya que soporta orientación a objetos, programación imperativa y programación funcional. Es administrado por la Python Software Foundation, posee una licencia de código abierto, denominada Python Software Foundation License. En python los objetos son una abstracción de los datos, así todos los datos en python son representados como objetos. Un **objeto** se compone de una _identidad_ y un tipo de _valor._ La indentación es esensial ya que permite saber la diferencia en bloques de código.
 
 
-|Operadores|Función            |  
+|Operadores|Función            |
 |:---------|:------------------|
 | +        | Suma              |
 | -        | Resta             |
@@ -312,7 +314,8 @@ Python es un lenguaje de programación interpretado, puede ser clasificado en un
 | len(s)   | Tamaño            |
 | str(x)   | Conversión        |
 
-Para pedir información en python `x=raw_input("Please enter x=")`, sigue siendo útil al momento de pedir listas ya que se puede usar el método `split()` para particionar elementos separados por espacios en blanco. En python las expresiones lógicas siguen siendo `==`,`!=`,`<` y etc. 
+Para pedir información en python `x=raw_input("Please enter x=")`, sigue siendo útil al momento de pedir listas ya que se puede usar el método `split()` para particionar elementos separados por espacios en blanco. En python las expresiones lógicas siguen siendo `==`,`!=`,`<` y etc.
+
 
 _If and else_
 
@@ -341,7 +344,7 @@ for i in iterableObj(listas,strings,arrays):
      thing_to_do1
 ```
 
-Luego se empezó a realizar el HandsOn 3, [HOn3](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-3.md), en donde se realizaron los ejercicios del libro The python workbook y pueden ser encontrados [aquí.](https://github.com/jjosealf94/MC/tree/master/python/exercises) El ejercicio de make quedo para el próximo Hands On. 
+Luego se empezó a realizar el HandsOn 3, [HOn3](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-3.md), en donde se realizaron los ejercicios del libro The python workbook y pueden ser encontrados [aquí.](https://github.com/jjosealf94/MC/tree/master/python/exercises) El ejercicio de make quedo para el próximo Hands On.
 
 
 
