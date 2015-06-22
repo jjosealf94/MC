@@ -210,6 +210,11 @@ Se empezó a realizar el segundo taller de laboratorio, el cual contenía ejerci
 
 Los ejecutables pueden ser encontrados [aquí.](https://github.com/jjosealf94/MC/tree/master/Talleres/Taller2)
 
+>Tercera ley de Kepler
+
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/Taller2_kepler3.png)
+
+
 ##Clase
 Se continuó con el aprendizaje de Gnuplot, donde se aprendieron comandos útiles para personalizar una gráfica.
 
@@ -285,6 +290,11 @@ Durante la clase de laboratorio se trabajó en el tercer taller, el cuál conten
 
 Los scripts correspondientes se pueden encontrar en la [carpeta](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller3)
 
+>Esfera aleatoria
+
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/Taller3_Esfera.png)
+
+
 ###Clase
 
 Durante la clase se retomó otra vez c donde se recordó la forma para realizar funciones y demás, se realizó un resumen de python. En el cual se habló de la _filosofía_ del lenguaje:
@@ -344,7 +354,53 @@ for i in iterableObj(listas,strings,arrays):
      thing_to_do1
 ```
 
-Luego se empezó a realizar el HandsOn 3, [HOn3](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-3.md), en donde se realizaron los ejercicios del libro The python workbook y pueden ser encontrados [aquí.](https://github.com/jjosealf94/MC/tree/master/python/exercises) El ejercicio de make quedo para el próximo Hands On.
+Luego se empezó a realizar el HandsOn 3, [HOn3](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-3.md), en donde se realizaron los ejercicios del libro **The python workbook.**
+
+>HO3: Ejercicios del libro [aquí.](https://github.com/jjosealf94/MC/tree/master/python/exercises) El ejercicio de make quedo para el próximo Hands On.
+
+##9-Jun-2015
+
+##Clase
+Se retomó el tema de make, ya que había quedado de la clase pasada. También se empezó el uso de los cuadernos de python. Para el funcionamiento correcto de los cuadernos fue necesario instalar Anaconda, porque arregló lo problemas que se tenía en cuanto a la falta de librerías y configuración. Además viene con la última versión `Jupiter`.
+
+Durante la clase se mostró como ejemplo el problema de los tres cuerpos y cómo solucionarlo (de manera aproximada) en mathematica. A el ejemplo anterior se le sumó el uso de Matplotlib para generar animaciones del momviento de los tres cuerpos que condciones iniciales adecuadas produce la **Lemniscate of Bernoulli**.
+
+Al terminar la parte teórica se empezó con el [HandsOn 4](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-4.md), el cuál contenía ejercicios sobre la modificación del `.bash_profile`, python, ipython y finalmente el ejercicio pendiente de make. Los  ejercicios del HandsOn4 pueden ser encontrados [aquí](https://github.com/jjosealf94/Scripts/tree/master/HandsOn4).
+
+>HO4:Make
+
+ Es un 'build manager' que sirve para automatizar proceso que necesitan prerrequisitos y tienen restricciones para ser ejecutados.
+"A Makefile describes how files depend on each other, and how to update out-of-date files."
+"Use patterns, rules, and variables to eliminate redundancy."
+"Use macros to control operation."
+La estructura básica de un archivo .mk es:
+* target
+* prerequisites
+* Action
+
+>HO4: Cambiando el bashrc
+
+```
+#!/bin/bash
+#: Description : This script show you how to change the bash rc
+
+#Ingresando al bashrc
+cd
+gedit .bashrc
+
+#Imprimiendo el nombre
+figlet Jose Acosta
+
+#Agregando una dirección al path
+PATH="/your/script/dir:${PATH}"
+export PATH
+```
+#Proyecto Final
+
+##10-Jun-2015
+
+###Laboratorio
+Se empezó con el primer experimento, el cual puede ser encontrado [aquí](https://github.com/ComputoCienciasUniandes/MetodosComputacionalesLaboratorio/blob/master/2015-V/actividades/experimentos/Exp1/Exp1.md). El objetivo del experimento era el estudio de un gas de discos suaves que interactúan de acuerdo al potencial de Lennard-Jones truncado. El informe de este experimento puede ser encontrado [aquí]()
 
 
 

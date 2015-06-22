@@ -4,10 +4,12 @@
 
 print ("Exercise #63: Write a program that displays a temperature conversion table for degrees Celsius and degrees Fahrenheit.")
 
+#Convertion formula between celsius and fahrenheit
 def convertion(x):
 	dft= (x*1.80)+32
 	return dft
 
+#Show the headers and table
 print ("Celsius\tFahrenheit")
 N=range(0,100,10)
 for i in N:
