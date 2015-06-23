@@ -137,10 +137,10 @@ Se empezó a realizar el **HandsOn 2** el cual contenía manejo de Expresiones r
 
 * Expresiones regulares:
 
->ER.1: Cuatro caracteres al inicio `^.{4}`
+>HO2.1: Cuatro caracteres al inicio `^.{4}`
 
 ```
-ER.2: Forteando el archivo de eventos del tiempo
+HO2.2: Formateando el archivo de eventos del tiempo
 
 sed -i -E 's/^ +//g' Timelineofmodernhistory.txt
 sed -i -E 's/See also:.*//g' Timelineofmodernhistory.txt
@@ -150,7 +150,7 @@ sed -i -E '/^$/d' Timelineofmodernhistory.txt
 sed -i -E 's/([0-9]): /\1:\t/g' Timelineofmodernhistory.txt
 
 ```
-ER.3: Se descargó los primeros 10 millones dígitos y se redirigió a pi.txt `curl http://Pi.Karmona.com > pi.txt`
+HO2.3: Se descargó los primeros 10 millones dígitos y se redirigió a pi.txt `curl http://Pi.Karmona.com > pi.txt`
 ```
 #!/bin/bash
 #: Description : This script gives to the file pi.txt the format
@@ -163,7 +163,7 @@ sed -i -E 's/<B>//g' pi.txt
 sed -E 's/(.{20})/\1\n/g' pi.txt > PIslices20.dat
 
 ```
-ER.4: Finalmente utilizando grep se buscó si el teléfono aparecía entre los dígitos:
+HO2.4: Finalmente utilizando grep se buscó si el teléfono aparecía entre los dígitos:
 
 ![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO2_TelefonoEnPi.png)
 
@@ -400,7 +400,75 @@ export PATH
 ##10-Jun-2015
 
 ###Laboratorio
-Se empezó con el primer experimento, el cual puede ser encontrado [aquí](https://github.com/ComputoCienciasUniandes/MetodosComputacionalesLaboratorio/blob/master/2015-V/actividades/experimentos/Exp1/Exp1.md). El objetivo del experimento era el estudio de un gas de discos suaves que interactúan de acuerdo al potencial de Lennard-Jones truncado. El informe de este experimento puede ser encontrado [aquí]()
+Se empezó con el primer experimento, el cual puede ser encontrado [aquí](https://github.com/ComputoCienciasUniandes/MetodosComputacionalesLaboratorio/blob/master/2015-V/actividades/experimentos/Exp1/Exp1.md). El objetivo del experimento era el estudio de un gas de discos suaves que interactúan de acuerdo al potencial de Lennard-Jones truncado. El informe de este experimento puede ser encontrado [aquí](https://github.com/jjosealf94/MC/blob/master/Experimentos/Exp1/Rayleigh.ipynb), mientras que los respectivos archivos en esta [carpeta.](https://github.com/jjosealf94/MC/blob/master/Experimentos/Exp1/)
+
+>Resultado de la simulación del experimento
+
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/Exp1_DistribucionVelocidades.png)
+
+##Clase
+Durante la clase se estudió más sobre matplolib y su capacidad de generar animaciones. Vimos varios ejemplos útiles en los cuales una animación podía ayudar a entender algún fenómeno.
+
+**Introducción a Matplotlib**
+Es una librería diseñada para generar gráficas de arreglos en 2D en Python. La _filosofía_ que rige esta librería es que la generación de gráficas debe ser algo fácil y que se pueda realizar en la menor cantidad de comandos. Inspirada en un principio en **MATLAB**, matplotlib es un proyecto independiente.
+
+Matplotlib puede ser divida en tres partes:
+
+* Pylab interface: Permite generar gráficas con comandos similares a los de MATLAB.
+* API o frontend: Administra las gráficas, texto, líneas y demás.
+* Backends: Son procesadores que transforman los 'frontend' para ser visualizados.
+
+Ejemplos
+
+_Comandos útiles_
+
+```
+figure()
+plot()
+scatter()
+title()
+xlabel()
+ylabel()
+savefig()
+subplot()
+xlim()
+ylim()
+show()
+legend()
+imread()
+autoscale()
+hist()
+```
+Para más información de Matplotlib. [referencia](http://matplotlib.org/1.4.3/api/pyplot_summary.html)
+Luego se empezó a realizar el HandsOn 5, el cuál contenía ejercicios para manejo de Matplotlib. [HOn5](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-5.md)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
