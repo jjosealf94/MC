@@ -442,6 +442,7 @@ hist()
 Para más información de Matplotlib. [referencia](http://matplotlib.org/1.4.3/api/pyplot_summary.html)
 Luego se empezó a realizar el HandsOn 5, el cuál contenía ejercicios para manejo de Matplotlib. [HOn5](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-5.md)
 
+Se desarrolló durante el HandsOn 5 los ejemplos del manual de Matplotlib, durante el cuál se aprendió la locación de texto, legendas y personalización gráficas.
 
 
 
