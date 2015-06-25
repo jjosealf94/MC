@@ -495,9 +495,9 @@ Durante la clase se empezó con el tema de interpolación en python. Se vieron v
 **Polinomios de Lagrange**
 Llamado así en honor a Joseph-Louis de Lagrange, es una forma de presentar el polinomio que interpola un conjunto de puntos dado. Dado un conjunto de _k+1_ puntos _(x0,y0)...(xk,yk)_ donde todos los _xj_ se asumen distintos, el polinomio interpolador en la forma de Lagrange es la combinación lineal.
 
-L(x) = \sum_{j=0}^{k} y_j \ell_j(x)
+$L(x) = \sum_{j=0}^{k} y_j \ell_j(x)$
 
-De bases polinómicas de Lagrange \ell_j(x) = \prod_{i=0,\, i\neq j}^{k} \frac{x-x_i}{x_j-x_i} = \frac{x-x_0}{x_j-x_0}\cdots \frac{x-x_{j-1}}{x_j-x_{j-1}}\frac{x-x_{j+1}}{x_j-x_{j+1}}\cdots \frac{x-x_{k}}{x_j-x_{k}} 
+De bases polinómicas de Lagrange $\ell_j(x) = \prod_{i=0,\, i\neq j}^{k} \frac{x-x_i}{x_j-x_i} = \frac{x-x_0}{x_j-x_0}\cdots \frac{x-x_{j-1}}{x_j-x_{j-1}}\frac{x-x_{j+1}}{x_j-x_{j+1}}\cdots \frac{x-x_{k}}{x_j-x_{k}} $
 
 
 
