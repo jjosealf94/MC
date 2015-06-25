@@ -493,6 +493,7 @@ Finalmente las notas del libro de Landau pueden ser encontradas [aquí](https://
 Durante la clase se empezó con el tema de interpolación en python. Se vieron varias formas de interpolación y métodos para implementar ésto. La referencia utilizada fue el capítulo 2 del libro de Scherer y el capítulo 8 del survey de Landau. 
 
 **Polinomios de Lagrange**
+
 Llamado así en honor a Joseph-Louis de Lagrange, es una forma de presentar el polinomio que interpola un conjunto de puntos dado. Dado un conjunto de _k+1_ puntos _(x0,y0)...(xk,yk)_ donde todos los _xj_ se asumen distintos, el polinomio interpolador en la forma de Lagrange es la combinación lineal.
 
 ![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/Clase_Lagrange.png)
@@ -500,6 +501,119 @@ Llamado así en honor a Joseph-Louis de Lagrange, es una forma de presentar el p
 De bases polinómicas de Lagrange:
 
 ![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/Clase_BaseLagrange.png)
+
+Si se aumenta el número de puntos a interpolar (o nodos) con la intención de mejorar la aproximación a una función, también lo hace el grado del polinomio interpolador así obtenido, por norma general. 
+
+> Implementación en python
+
+```
+# Base de lagrange
+def lagrangep(absc,j):
+    pol=np.poly1d([0,1])
+    k=len(absc)
+    for m in range(k):
+        if m!=j:
+            pol*=1./(absc[j]-absc[m])*np.poly1d([1.,-absc[m]])
+    return pol   
+
+# Lagrange
+def interlagr(absc,orde):
+    poly=np.poly1d([0])
+    for i in range(len(absc)):
+        poly+=orde[i]*lagrangep(absc,i)
+    return poly
+
+```
+
+**Polinomio de Newton**
+
+Es un método de interpolación polinómica. Aunque sólo existe un único polinomio que interpola una serie de puntos, existen diferentes formas de calcularlo. Dados _(n+1)_ escalares distintos _(z0,z1,...,zn)_ y _(n+1)_ escalares (iguales ó distintos) _(w0,w1,...,wn)_ se define el polinomio interpolador en la forma:
+
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/Clase_Newton.png)
+   
+Siendo _(c0,...,cN)_ las coordenadas del polinomio y la expresión anterior del polinomio interpolador la conocida como diferencias divididas.Teniendo en cuenta que existe una función _p_ tal que _p(zi)=wi_ y haciendo sucesivamente: _z = zi, i=(0,...,n)_
+
+> Implementación en python
+
+```
+# Newton basis
+def newtonbasis(absc,i):
+    poly=np.poly1d([0,1])
+    if i!=0:
+        for k in range(len(absc)-1):
+            poly*=np.poly1d([1,-absc[k]])
+    return poly
+ 
+# Divided differences
+def div_dif(y,x):
+    j=len(x)
+    if j==1:
+        return y[0]
+    else:
+        return (div_dif(y[1:],x[1:])-div_dif(y[:-1],x[:-1]))/(x[-1]-x[0])
+
+# Newton expasion       
+def newtexp(absc0,ords0):
+    absc=[float(i) for i in absc0]
+    ords=[float(i) for i in ords0]
+    pol=np.poly1d([0])
+    for i in range(len(absc)):
+        pol+=div_dif(ords[:i+1],absc[:i+1])*(newtonbasis(absc,i))
+    return pol
+    
+```
+
+
+**Splines 1-D**
+
+La clase interp1d en scipy.interpolate es un método conveniente para crear una función basada en puntos fijos de datos que pueden ser evaluados en cualquier lugar dentro del dominio definido por los datos dados utilizando interpolación lineal. 
+
+```
+from scipy import interpolate
+sale=[] #Datos
+sale_interpol_lin = interpolate.interp1d(sale[:,0],sale[:,1],kind='linear')
+sale_interpol_nearest = interpolate.interp1d(sale[:,0],sale[:,1],kind='nearest')
+sale_interpol_zero = interpolate.interp1d(sale[:,0],sale[:,1],kind='zero')
+sale_interpol_slinear = interpolate.interp1d(sale[:,0],sale[:,1],kind='slinear')
+sale_interpol_quadratic = interpolate.interp1d(sale[:,0],sale[:,1],kind='quadratic')
+sale_interpol_cubic = interpolate.interp1d(sale[:,0],sale[:,1],kind='cubic')
+
+```
+
+**Ajustes no lineales y por mínimos cuadrados**
+
+```
+from scipy.optimize import curve_fit # Para hacer ajustes no lineales
+from numpy import polyfit # Para hacer ajustes polinomiales por mínimos cuadrados
+
+galaxies = np.genfromtxt(os.path.expanduser("./galaxies.csv"),delimiter=",")
+
+distances = galaxies[:,1] # En kPc
+speeds = galaxies[:,2] # En km/s
+distances = distances / 1000. # En MPc
+# Antes de hacer la gráfica calculemos los parámetros de la regresión lineal
+thefit=np.polyfit(distances,speeds,1)
+slope=thefit[0]
+intercept=thefit[1]
+
+# Ejemplo de regresión no polinomial
+# Datos del laboratorio de Óptica Cuántica: operaciones sobre un qubit
+quarterdata1=np.genfromtxt(os.path.expanduser("~/Dropbox/Data/blue.csv"),delimiter=',')
+quarterdata2=np.genfromtxt(os.path.expanduser("~/Dropbox/Data/red.csv"),delimiter=',')
+def func(x,p1,p2,p3):
+    return (np.cos(p3 + x - 2*p1 - p2) * np.cos(p3 - x + p2))**2 + (np.sin(p3 - x + p2) * np.sin(p3 - x - 2*p1 + p2))**2
+# El último argumento entregado a curve_fit corresponde a los parámetros iniciales
+nonlfit=curve_fit(func, quarterdata1[:,0], quarterdata1[:,1],p0=(0,0,0))
+
+```
+
+
+
+
+
+
+
+
 
 
 
