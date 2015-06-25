@@ -349,7 +349,7 @@ while condition:
 
 _for_
 
-```#
+```
 for i in iterableObj(listas,strings,arrays):
      thing_to_do1
 ```
@@ -367,7 +367,7 @@ Durante la clase se mostró como ejemplo el problema de los tres cuerpos y cómo
 
 Al terminar la parte teórica se empezó con el [HandsOn 4](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-4.md), el cuál contenía ejercicios sobre la modificación del `.bash_profile`, python, ipython y finalmente el ejercicio pendiente de make. Los  ejercicios del HandsOn4 pueden ser encontrados [aquí](https://github.com/jjosealf94/Scripts/tree/master/HandsOn4).
 
->HO4:Make
+> HO4:Make
 
  Es un 'build manager' que sirve para automatizar proceso que necesitan prerrequisitos y tienen restricciones para ser ejecutados.
 "A Makefile describes how files depend on each other, and how to update out-of-date files."
@@ -378,9 +378,10 @@ La estructura básica de un archivo .mk es:
 * prerequisites
 * Action
 
->HO4: Cambiando el bashrc
+> HO4: Cambiando el bashrc
 
 ```
+
 #!/bin/bash
 #: Description : This script show you how to change the bash rc
 
@@ -394,7 +395,9 @@ figlet Jose Acosta
 #Agregando una dirección al path
 PATH="/your/script/dir:${PATH}"
 export PATH
+
 ```
+
 #Proyecto Final
 
 ##10-Jun-2015
@@ -439,43 +442,62 @@ imread()
 autoscale()
 hist()
 ```
-Para más información de Matplotlib. [referencia](http://matplotlib.org/1.4.3/api/pyplot_summary.html)
+Para más información de Matplotlib. [referencia.](http://matplotlib.org/1.4.3/api/pyplot_summary.html)
 Luego se empezó a realizar el HandsOn 5, el cuál contenía ejercicios para manejo de Matplotlib. [HOn5](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-5.md)
 
-Se desarrolló durante el HandsOn 5 los ejemplos del manual de Matplotlib, durante el cuál se aprendió la locación de texto, legendas y personalización gráficas.
+Se desarrolló durante el HandsOn 5 los ejemplos del manual de Matplotlib, se aprendió la locación de texto, legendas y personalización gráficas. Además la manera de cómo hacer histogramas, modificar los ejes, la escala y demás. Luego se retoma el ejercicio del circulo y hacer una animación cambiando el radio, así se aprendió la estructura básica de una animación en python. Finalmente el ejercicio sobre figuras de **Lissajous** fue útil debido a que se repasan comandos  como subplot(), figure(), axis() y se utiliza el comando **randint()** para generar enteros aleatorios.
 
+```
+%pylab inline
+from random import randint
 
+t = linspace(0,2*np.pi,200)
+figure(figsize=(12,7))
 
+for i in range(0,25):  
+    x = (sin(randint(1,7)*t) + (pi/randint(2,4)))
+    y = sin(randint(5,8)*t)
+    subplot(5,5,i+1)
+    plot(x,y)
+    axis('off')
 
+savefig("lissajous.png", format='png',bbox_inches='tight',transparent=False)
+```
 
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO5_lissajous.png)
 
+##12-Jun-2015
 
+###Laboratorio
+Durante el laboratorio se trabajó en el experimento 1, se logró realizar lo histogramas de velocidades y se adelantó la parte teórica del experimento.  El informe de este experimento puede ser encontrado [aquí](https://github.com/jjosealf94/MC/blob/master/Experimentos/Exp1/Rayleigh.ipynb)
 
+###Clase
+Durante la clase se trabajó en el HandsOn 6, [HOn6](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-6.md), en el cual se volvió a tratar el tema de la animaciones y el problema de los tres cuerpos. No se logró renderizar la animación ya que se necesita tener **ffmpeg** para guardarla, así que se realizó la instalación más sin embargo no se logró ubicarla/configurarla de manera correcta.
 
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO6_AniPlanetas.png)
 
+Luego se realizó la lectura del segundo capítulo del libro de Landau y se intentó realizar algunos de los ejemplos que se reproducen ahí. A continuación se muestra un pequeño resumen sobre **errores e incertidumbres en cálculos numéricos.**
 
+Cuando se realizan cálculos computacionales es inevitable tener en cuenta que se pueden presentar errores que provocan tener incertidumbres en los datos que se trabajan. Los errores más comumes se pueden clasificar en los siguientes: 
 
+* Blunders or bad theory: Mala lectura de los datos, mal implementación de la teoría.
+* Random errors: Eventos fuera de nuestro control.
+* Approximation errors: Aproximación de conceptos matemáticos.
+* Round-off errors: Limitación de la capacidad de un computador para almacenar y procesar cifras.
 
+Finalmente las notas del libro de Landau pueden ser encontradas [aquí](https://github.com/jjosealf94/MC/blob/master/Notes/LandauNotes.ipynb)
 
+##16-Jun-2015
 
+##Clase
+Durante la clase se empezó con el tema de interpolación en python. Se vieron varias formas de interpolación y métodos para implementar ésto. La referencia utilizada fue el capítulo 2 del libro de Scherer y el capítulo 8 del survey de Landau. 
 
+**Polinomios de Lagrange**
+Llamado así en honor a Joseph-Louis de Lagrange, es una forma de presentar el polinomio que interpola un conjunto de puntos dado. Dado un conjunto de _k+1_ puntos _(x0,y0)...(xk,yk)_ donde todos los _xj_ se asumen distintos, el polinomio interpolador en la forma de Lagrange es la combinación lineal.
 
+L(x) = \sum_{j=0}^{k} y_j \ell_j(x)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+De bases polinómicas de Lagrange \ell_j(x) = \prod_{i=0,\, i\neq j}^{k} \frac{x-x_i}{x_j-x_i} = \frac{x-x_0}{x_j-x_0}\cdots \frac{x-x_{j-1}}{x_j-x_{j-1}}\frac{x-x_{j+1}}{x_j-x_{j+1}}\cdots \frac{x-x_{k}}{x_j-x_{k}} 
 
 
 
