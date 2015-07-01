@@ -489,7 +489,7 @@ Finalmente las notas del libro de Landau pueden ser encontradas [aquí](https://
 
 ##16-Jun-2015
 
-##Clase
+###Clase
 Durante la clase se empezó con el tema de interpolación en python. Se vieron varias formas de interpolación y métodos para implementar ésto. La referencia utilizada fue el capítulo 2 del libro de Scherer y el capítulo 8 del survey de Landau. 
 
 **Polinomios de Lagrange**
@@ -560,62 +560,184 @@ def newtexp(absc0,ords0):
     for i in range(len(absc)):
         pol+=div_dif(ords[:i+1],absc[:i+1])*(newtonbasis(absc,i))
     return pol
-    
+
 ```
 
 
 **Splines 1-D**
 
-La clase interp1d en scipy.interpolate es un método conveniente para crear una función basada en puntos fijos de datos que pueden ser evaluados en cualquier lugar dentro del dominio definido por los datos dados utilizando interpolación lineal. 
+La clase interp1d en scipy.interpolate es un método conveniente para crear una función basada en puntos fijos de datos que pueden ser evaluados en cualquier lugar dentro del dominio definido por los datos dados utilizando interpolación lineal.
 
 ```
 from scipy import interpolate
 sale=[] #Datos
-sale_interpol_lin = interpolate.interp1d(sale[:,0],sale[:,1],kind='linear')
-sale_interpol_nearest = interpolate.interp1d(sale[:,0],sale[:,1],kind='nearest')
-sale_interpol_zero = interpolate.interp1d(sale[:,0],sale[:,1],kind='zero')
-sale_interpol_slinear = interpolate.interp1d(sale[:,0],sale[:,1],kind='slinear')
-sale_interpol_quadratic = interpolate.interp1d(sale[:,0],sale[:,1],kind='quadratic')
-sale_interpol_cubic = interpolate.interp1d(sale[:,0],sale[:,1],kind='cubic')
+interpol_lin = interpolate.interp1d(datosx,datosy,kind='linear')
+interpol_nearest = interpolate.interp1d(datosx,datosy,kind='nearest')
+interpol_zero = interpolate.interp1d(datosx,datosy,kind='zero')
+interpol_slinear = interpolate.interp1d(datosx,datosy,kind='slinear')
+interpol_quadratic = interpolate.interp1d(datosx,datosy,kind='quadratic')
+interpol_cubic = interpolate.interp1d(datosx,datosy,kind='cubic')
 
 ```
 
-**Ajustes no lineales y por mínimos cuadrados**
+**Ajustes no lineales y lineales por mínimos cuadrados**
+
+_Mínimos cuadrados:_ Ajusta a un polinimio p(x) = p[0] * x**deg + ... + p[deg] de grado deg los datos (x, y). Retorna un vector con los coeficientes de p(x) que minimizan el cuadrado del error.
 
 ```
-from scipy.optimize import curve_fit # Para hacer ajustes no lineales
 from numpy import polyfit # Para hacer ajustes polinomiales por mínimos cuadrados
 
-galaxies = np.genfromtxt(os.path.expanduser("./galaxies.csv"),delimiter=",")
-
-distances = galaxies[:,1] # En kPc
-speeds = galaxies[:,2] # En km/s
-distances = distances / 1000. # En MPc
-# Antes de hacer la gráfica calculemos los parámetros de la regresión lineal
+# Regresión lineal
 thefit=np.polyfit(distances,speeds,1)
 slope=thefit[0]
 intercept=thefit[1]
 
+```
+
+_Ajuste no lineal_: Usa un ajuste no linear por mínimos cuadrados sobre una función y unos datos.
+
+```
+from scipy.optimize import curve_fit # Para hacer ajustes no lineales
+
 # Ejemplo de regresión no polinomial
-# Datos del laboratorio de Óptica Cuántica: operaciones sobre un qubit
-quarterdata1=np.genfromtxt(os.path.expanduser("~/Dropbox/Data/blue.csv"),delimiter=',')
-quarterdata2=np.genfromtxt(os.path.expanduser("~/Dropbox/Data/red.csv"),delimiter=',')
+
 def func(x,p1,p2,p3):
-    return (np.cos(p3 + x - 2*p1 - p2) * np.cos(p3 - x + p2))**2 + (np.sin(p3 - x + p2) * np.sin(p3 - x - 2*p1 + p2))**2
-# El último argumento entregado a curve_fit corresponde a los parámetros iniciales
-nonlfit=curve_fit(func, quarterdata1[:,0], quarterdata1[:,1],p0=(0,0,0))
+    return function
+
+nonlfit=curve_fit(func, datosx, datosy,p0=(0,0,0))
+
+```
+Acontinuación se empezó a realizar el [HandsOn 7](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-7.md), el cual contenía ejercicios sobre interpolación.
+
+>HO7: Polyunknown
+
+Se encontró que el grado del polinomio desconocido es 13, para ver la solución del ejercicio ver [aquí](https://github.com/jjosealf94/Scripts/blob/master/HandsOn7/polyunkown.ipynb)
+
+**Resultado**
+
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO7_lagrange.png)
+
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO7_polyfit.png)
+
+>HO7: Estimación de la masa de jupiter con 4 lunas
+
+Se realizó la estimación de la masa de jupiter mediante la interpolación de datos con un polinomio de grado 3. Ver solución [aquí](https://github.com/jjosealf94/Scripts/blob/master/HandsOn7/MasaJupiter.ipynb)
+
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO7_Jupiter.png)
+
+>HO7: Campo magnético de un dipolo
+
+Se realizó una interpolación de los datos datos en la tabla de acuerdo a un modelo que dónde de cae el campo magnético de acuerdo al cubo de la distancia.
+
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO7_Dipolo.png)
+
+La tabla para **B(x)** con 100 renglones uniformemente espaciada entre el x=2.3cm y x=4.3cm se encuentra en el siguiente [cuaderno.](https://github.com/jjosealf94/Scripts/blob/master/HandsOn7/momentoMagnetico.ipynb)
+
+#Proyecto
+
+##17-Jun-2015
+###Laboratorio
+Durante la clase de laboratorio se trabajó en el cuarto taller, el cuál contenía ejercicios sobre diferentes clases de interpolación. El enunciado puede ser encontrado [aquí](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller4/Taller4.md), mientras que la respectiva solución [aquí](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller4/Taller4.ipynb).
+
+Los scripts correspondientes se pueden encontrar en la [carpeta.](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller4)
+
+>Nueva tabla con muestreo uniforme usando un cubic spline.
+
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/Taller4_Interpol.png)
+
+###Clase
+
+Se finalizó con el tema de interpolación, se empezó con **Fourier** y antes de acabar se vieron nuevas funciones de **Git**.
+
+_**Análisis Fourier**_
+El análisis de Fourier es una herramienta que permite el estudio de funciones en términos de una base de senos y cosenos. Investiga y generaliza las nociones de series de Fourier y transformadas de Fourier. Se ha convertido en un tema con aplicaciones en campos diversos como el procesamiento de señales, la mecánica cuántica o la neurociencia.
+
+**Series de Fourier**
+Dado una función periódica que satisface las condiciones de Dirichlet, se tiene que:
+
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/Clase_serieFourier.png)
+
+>Implementación en python
+
+```
+fig=plt.figure(figsize=(10,5))
+x=np.linspace(0,2*np.pi,100)
+y=0.*x
+plt.plot([0,0,np.pi,np.pi,2*np.pi,2*np.pi],[0,1,1,-1,-1,0],"k",lw=3)
+for i in range(5):
+    y+=4./np.pi*1./(2*i+1)*np.sin((2*i+1)*x)
+    plt.plot(x,y,label=str(i))
+plt.xlim(0,2*np.pi)
+plt.legend()
+plt.title("Square Wave Fourier Series")
+plt.show()
 
 ```
 
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/Clase_fourierOndaCuadrada.png)
 
 
+**Más sobre Git**
+
+```
+#Ver ramas
+git branch
+#Iniciar una nueva rama
+git branch rama1
+#Cambiar a otra rama
+git checkout rama1
+#Merge
+git merge rama1
+#Etiquetas
+git tag -a
+
+```
+Luego de la clase se empezó a trabajar en el [HandsOn 8](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-8.md), el cuál contenía ejercicios sobre interpolación, series de fourier y manejo de Git. Ver solución [aquí](https://github.com/jjosealf94/Scripts/blob/master/HandsOn8/HandsOn8.ipynb), el punto de Fourier fue aplazado para el HandsOn 9.
+
+>HO8: Primer punto de Lagrange Jupiter-Io
+
+Se encontró que usando la funcíón intergrada de python `root` el primer punto de lagrange es: 10467.58. Luego usando la aproximación de M1>>M2 se encontró que el punto de lagrage es:15224.97.
+
+La diferencia porcentual entre uno y otro es de aproximadamente un **45%.**
 
 
+##19-Jun-2015
+
+###Laboratorio
+Durante la clase de laboratorio se trabajó en el quinto taller, el cuál contenía ejercicios sobre series de Fourier y el fenómeno de Gibbs. El enunciado puede ser encontrado [aquí](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller5/Taller5.md), mientras que la respectiva solución [aquí](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller5/PruebaS5.ipynb).
+
+Los scripts correspondientes se pueden encontrar en la [carpeta.](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller5)
+
+>Fenómeno de Gibbs
+
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/Taller5_CteGibbs.png)
 
 
+###Clase
+
+**Transformada Discreta de Fourier**
+Cuándo la función y su transformada de Fourier son remplazadas por una discretización de éstas, se conoce como transformada de fourier discreta (TFD). La TFD se ha vuelto popular en computación númerica ya que su algoritmo es rápido de computar, conocida también como _rápida transformada de fourier_, se tiene detalles de el algoritmo desde Gauss (1805) y traída a la luz en su forma actual por Cooley y Turkey.
+
+* Puntos uniformemente espaciados (Si no, hacer interpolación)
+* Número de puntos potencia de 2
 
 
+>Implementación en python
 
+```
+ffty=fft(y)
+freq = fftfreq(N, dt) # frecuencias
+absffty=np.abs(ffty)
+plt.figure(figsize=(10,5))
+for i in range(len(absffty)):
+    plt.plot([freq[i],freq[i]],[0,absffty[i]],"-")
+plt.plot(freq,absffty,"o")
+plt.xlabel("f/Hz")
+plt.xlim(-500,500)
+plt.title("DFT")
+plt.show()
 
+```
+Para más información ver [aquí.](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/slides/2015-V/07-Fourier.ipynb)
 
-
+A continuación se empezó con el [HandsOn 9](), el cuál contenía ejercicios sobre **Fourier y aplicaciones de Filtros** para imágenes
