@@ -740,4 +740,17 @@ plt.show()
 ```
 Para más información ver [aquí.](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/slides/2015-V/07-Fourier.ipynb)
 
-A continuación se empezó con el [HandsOn 9](), el cuál contenía ejercicios sobre **Fourier y aplicaciones de Filtros** para imágenes
+A continuación se empezó con el [HandsOn 9](), el cuál contenía ejercicios sobre **Fourier y aplicaciones de Filtros** para imágenes.
+
+>HO9: Función triangular
+
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO9_Triangular.png)
+
+Ver solución [aquí.](https://github.com/jjosealf94/Scripts/blob/master/HandsOn9/FuncionTriangular.ipynb)
+
+>HO9: DFT y Procesamiento de Imágenes
+
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO9_lena.png)
+
+Ver solución [aquí](https://github.com/jjosealf94/Scripts/blob/master/HandsOn9/Imagenes.ipynb)
+
