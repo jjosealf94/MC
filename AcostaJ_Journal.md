@@ -1,4 +1,5 @@
-#Primera semana
+#Métodos computacionales: Bitácora
+##José Alfonso Acosta Peñaloza
 
 ##27-May-2015
 ###Clase
@@ -276,7 +277,7 @@ Son necesarios para ajustar nuestros datos a una curva. Para el siguiente uso de
 ![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/cavendishExperiment.png)
 
 
-Para más información [referencia.](http://www.cs.hmc.edu/~vrable/gnuplot/using-gnuplot.html)
+Para más información: [referencia.](http://www.cs.hmc.edu/~vrable/gnuplot/using-gnuplot.html)
 
 
 En clase se realizaron ejemplos de como limpiar un html usando _w3m_ y además se mostró como usando _curl_ descargar información de la tasa de cambio del dolar a peso y se realizó con gnuplot la respectiva gráfica. El ejemplo es útil porque muestra como graficar cuándo se tienen series de tiempo y además de limpiar usando  sed un html, puede ser encontrado en la carpeta "examples" con el nombre dollar.sh. Finalmente se realiazó un ajuste de curva lineal sobre la Ley de hubble, el ejemplo puede ser encontrado en la carpeta "examples".
@@ -490,7 +491,7 @@ Finalmente las notas del libro de Landau pueden ser encontradas [aquí](https://
 ##16-Jun-2015
 
 ###Clase
-Durante la clase se empezó con el tema de interpolación en python. Se vieron varias formas de interpolación y métodos para implementar ésto. La referencia utilizada fue el capítulo 2 del libro de Scherer y el capítulo 8 del survey de Landau. 
+Durante la clase se empezó con el tema de interpolación en python. Se vieron varias formas de interpolación y métodos para implementar ésto. La referencia utilizada fue el capítulo 2 del libro de Scherer y el capítulo 8 del survey de Landau.
 
 **Polinomios de Lagrange**
 
@@ -530,7 +531,7 @@ def interlagr(absc,orde):
 Es un método de interpolación polinómica. Aunque sólo existe un único polinomio que interpola una serie de puntos, existen diferentes formas de calcularlo. Dados _(n+1)_ escalares distintos _(z0,z1,...,zn)_ y _(n+1)_ escalares (iguales ó distintos) _(w0,w1,...,wn)_ se define el polinomio interpolador en la forma:
 
 ![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/Clase_Newton.png)
-   
+
 Siendo _(c0,...,cN)_ las coordenadas del polinomio y la expresión anterior del polinomio interpolador la conocida como diferencias divididas.Teniendo en cuenta que existe una función _p_ tal que _p(zi)=wi_ y haciendo sucesivamente: _z = zi, i=(0,...,n)_
 
 > Implementación en python
@@ -633,7 +634,7 @@ Se realizó una interpolación de los datos datos en la tabla de acuerdo a un mo
 
 La tabla para **B(x)** con 100 renglones uniformemente espaciada entre el x=2.3cm y x=4.3cm se encuentra en el siguiente [cuaderno.](https://github.com/jjosealf94/Scripts/blob/master/HandsOn7/momentoMagnetico.ipynb)
 
-#Proyecto
+#Proyecto Final
 
 ##17-Jun-2015
 ###Laboratorio
@@ -816,3 +817,58 @@ Al finalizar la clase se empezó a trabajar en el [HandsOn 10](https://github.co
 > HO10: Duración del ciclo solar analizando con una DFT
 
 ![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO10_CicloSolar.png)
+
+##24-Jun-2015
+###Laboratorio
+Durante la clase de laboratorio se trabajó en el sexto taller, el cuál contenía ejercicios sobre manejo de datos, smopy, integración y derivadas. El enunciado puede ser encontrado [aquí](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller6/Taller6.md), mientras que la respectiva solución [aquí](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller6/GPS.ipynb).
+
+Los scripts correspondientes se pueden encontrar en la [carpeta.](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller6)
+
+>Recorrido por el parque
+
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/Taller6_GPS.png)
+
+###Clase
+Durante la clase se empezó a trabajar en la **integración** en python, se estudiaron tres métodos conocidos como **aproximación trapezoidal, regla de simpson y cuadratura de Gauss.**
+
+En el caso de aproximación trapezoidal se aproxima mediante un polinomio de primer grado, así sabiendo calcular el área de un trapezoide podemos estimar la integral.
+
+`Area= (b-a)/2*(f(a)+f(b))`
+
+El método utilizado para la regla de Simpson sigue la misma idea, pero aproximando los subintervalos de f mediante polinomios de segundo grado.
+
+Una cuadratura de Gauss n, es una cuadratura que selecciona los puntos de la evaluación de manera óptima y no en una forma igualmente espaciada, construida para dar el resultado de un polinomio de grado 2n-1 o menos, elegibles para los puntos xi y los coeficientes wi para i=1,...,n. El dominio de tal cuadratura por regla es de [−1, 1]. [Información](https://es.wikipedia.org/wiki/Cuadratura_de_Gauss)
+
+A continuación se continuó con el desarrollo del [HandsOn 11](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-11.md), el cuál contenía ejercicios sobre **la regla simpson 3/8.** La solución puede ser encontrada [aquí.](https://github.com/jjosealf94/Scripts/blob/master/HandsOn11/ReglaDeSimpson.ipynb)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
