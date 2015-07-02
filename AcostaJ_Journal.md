@@ -740,7 +740,7 @@ plt.show()
 ```
 Para más información ver [aquí.](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/slides/2015-V/07-Fourier.ipynb)
 
-A continuación se empezó con el [HandsOn 9](), el cuál contenía ejercicios sobre **Fourier y aplicaciones de Filtros** para imágenes.
+A continuación se empezó con el [HandsOn 9](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-9.md), el cuál contenía ejercicios sobre **Fourier y aplicaciones de Filtros** para imágenes.
 
 >HO9: Función triangular
 
@@ -754,3 +754,65 @@ Ver solución [aquí.](https://github.com/jjosealf94/Scripts/blob/master/HandsOn
 
 Ver solución [aquí](https://github.com/jjosealf94/Scripts/blob/master/HandsOn9/Imagenes.ipynb)
 
+##23-Jun-2015
+###Clase
+Se empezó el estudio de las derivadas y se implementó en python. Los métodos usados fueron los de **Forward, Backward and Central differences.** Se encontró que con los métodos anteriores se tiene diferentes grados de aproximación con la derivada por lo tanto se tiene un error asociado al cálculo de la derivada.
+
+**Errores de las derivadas**
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/Clase_derivadas.png)
+
+> Implementación python
+
+```
+h = (b-a)/(numPoints-1)
+yforward = np.roll(y,-1)
+ybackward = np.roll(y,1)
+
+# Calcular las derivadas usando forward differences
+dy1 = (yforward-y)/h
+dy1 = dy1[:-1] # la última no tiene significado
+
+# ahora usando diferencias pasadas,
+dy2=(y-ybackward)/h
+dy2=dy2[1:] # la primera no tiene significado
+
+# Finalmente usando diferencias centrales.
+dy3 = (yforward-ybackward)/(2.*h)
+dy3=dy3[1:-1] #Ni la primera ni la última tiene significado
+
+```
+
+Luego se vieron ejemplos de **extrapolación** los cuales se usaron para estimar el valor de la derivada cuándo h tiende a cero.
+
+```
+from scipy import interpolate as interscipy
+
+def D(x,h):
+    return (examplefun(x+h)-examplefun(x-h))/(2.*h)
+
+Dtable=[]
+h=0.01/2.
+xchoice=np.pi/4.
+
+for i in range(5):
+    Dtable.append([h,D(xchoice,h)])
+    h=h/2.
+
+aDtable=np.array(Dtable)
+rows=aDtable[0:2]
+lag1=interscipy.lagrange(rows[:,0]**2,rows[:,1]) #Lagrange orden 1 en h^2
+
+```
+Finalmente en la clase se estudió una introducción al cálculo en python con variables simbólicas.
+
+```
+from sympy import *
+x,y,z = symbols('x y z')
+init_printing(use_unicode=True)
+```
+
+Al finalizar la clase se empezó a trabajar en el [HandsOn 10](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-10.md), el cuál contenía ejercicios de manejo de transformada de fourier discreta. La solución puede ser encontrada [aquí.](https://github.com/jjosealf94/Scripts/blob/master/HandsOn10/Fourier.ipynb)
+
+> HO10: Duración del ciclo solar analizando con una DFT
+
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO10_CicloSolar.png)
