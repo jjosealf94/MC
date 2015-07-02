@@ -400,6 +400,7 @@ export PATH
 ```
 
 #Proyecto Final
+Quisiera poder trabajar en conjunto con c y python, tal vez algo que necesite realizar grandes cálculos y poder visualizar el resultado.
 
 ##10-Jun-2015
 
@@ -635,6 +636,7 @@ Se realizó una interpolación de los datos datos en la tabla de acuerdo a un mo
 La tabla para **B(x)** con 100 renglones uniformemente espaciada entre el x=2.3cm y x=4.3cm se encuentra en el siguiente [cuaderno.](https://github.com/jjosealf94/Scripts/blob/master/HandsOn7/momentoMagnetico.ipynb)
 
 #Proyecto Final
+Trabajar en alguna simulación de fluidos. Tal vez pueda ser simular el flujo sanguíneo en alguna arteria importante. El resultado visualizado a través de un gif o un video
 
 ##17-Jun-2015
 ###Laboratorio
@@ -841,9 +843,23 @@ Una cuadratura de Gauss n, es una cuadratura que selecciona los puntos de la eva
 
 A continuación se continuó con el desarrollo del [HandsOn 11](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-11.md), el cuál contenía ejercicios sobre **la regla simpson 3/8.** La solución puede ser encontrada [aquí.](https://github.com/jjosealf94/Scripts/blob/master/HandsOn11/ReglaDeSimpson.ipynb)
 
+>HO11: Regla 3/8 de Simpson y el error
+
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO11_Simpson.png)
 
 
+##26-Jun-2015
+###Laboratorio
+Durante la clase de laboratorio se continuó trabajando en el sexto taller. Se adelantó la parte las derivadas y un arreglo para éstas, la respectiva solución [aquí](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller6/GPS.ipynb).
 
+Los scripts correspondientes se pueden encontrar en la [carpeta.](https://github.com/jjosealf94/MC/blob/master/Talleres/Taller6)
+
+>Recorrido en parque: Velocidad y mejoras
+
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/Taller6_Velocidades.png)
+
+###Clase
+Solución a ecuaciones diferenciales por diferentes métodos.
 
 
 
