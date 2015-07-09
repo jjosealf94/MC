@@ -859,30 +859,158 @@ Los scripts correspondientes se pueden encontrar en la [carpeta.](https://github
 ![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/Taller6_Velocidades.png)
 
 ###Clase
-Solución a ecuaciones diferenciales por diferentes métodos.
+Durante la clase se aprendió a resolver ecuaciones diferenciales ordinarias por diversos métodos. Se aprendió los métodos de Euler, regla del punto medio y Runge-Kutta de orden 3 y 4.
+
+**Método de Euler**
+Es un método de integración numérica para resolver ecuaciones diferenciales ordinarias dado un valor inicial. Se tiene el problema de calcular la pendiente de una curva que satisface una ecuación diferencial dada. En principio a pesar de desconocer la curva, se conoce su punto de comienzo. Así de la ecuación diferencial se puede computar la pendiente de la curva en ese punto y por lo tanto la recta tangente a la curva. Luego de varios pasos se tiene formada una curva poligonal, la cuál no diverge lejos de la curva original. (Tener en cuenta que pueden existir ecuaciones inestables)
+
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/Clase_Euler.png)
+
+>Implementación en python
+
+```
+#One step of the Euler Method
+def one_Euler_step():
+    global t
+    global Deltat
+    global z
+    #Take the current value of the z and aproximate the new value
+    z+= f(z)*Deltat
+    #Update the value of t
+    t+=Deltat
+```
+
+**Método del punto medio**
+En el análisis numérico el método del punto medio es un método paso a paso para resolver ecuaciones diferenciales. El método es un refinamiento del método de Euler y su deducción es similiar.
+
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/Clase_PuntoMedio.png)
 
 
+>Implementación en python
 
+```
+#One step in the midpoint rule
+def one_midpoint_step():
+    global t
+    global Deltat
+    global z
+    #The first K1 is the value of the variable evalutated in the function
+    K1= f(z)
+    #The second is an approximate value with
+    K2= f(z + f(z)*Deltat)
+    z+= Deltat/2. * (K1+K2)
 
+```
 
+**Runge-Kutta**
+Los métodos anteriores hacen parte de una familia más general de métodos para resolver ecuaciones diferenciales de manera numérica conocidos cómo la familia Runge-Kutta. La idea es generalizar los métodos a partir del siguiente esquema numérico.
 
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/Clase_RungeKutta.png)
 
+donde cada __t(k,i)__ denota un punto en el k-ésimo subintervalo __[tk,t(k+1)]__ y __u(k,i) ≈ y(t k,i )__ se interpreta como una aproximación en el punto __t(k,i)__ que se suele calcular por una fórmula similar más simple del mismo tipo. Los parámetros __a(i)__ así como los parámetros que intervienen para calcular cada aproximación intermedia __u(k,i)__ se eligen de modo que el método alcance el orden de consistencia deseado.
 
+>Implementación en python Orden 3 y Orden 4
 
+```
+def one_Kutta3_step():
+    global t
+    global Deltat
+    global z
+    K1 = f(z)
+    K2 = f(z+Deltat*(1/2.*K1))
+    K3 = f(z + Deltat*(-K1+2.*K2))
+    z+= Deltat / 6. * (K1+4*K2+K3)
 
+def one_Kutta4_step():
+    global t
+    global Deltat
+    global Y
+    K1 = f(Y)
+    K2 = f(Y + Deltat*(1./2.*K1))
+    K3 = f(Y + Deltat*(1./2.*K2))
+    K4 = f(Y + Deltat*K3)
+    Y+= Deltat * (1/6.*K1 + 1/3. * K2 + 1/3.*K3 + 1/6.*K4)
+    t+= Deltat
+```
 
+A continuación se empezó a trabajar en el [HandsOn 11](https://github.com/ComputoCienciasUniandes/MetodosComputacionales/blob/master/hands_on/HandsOn-11.md), el cuál tenía ejercicios sobre integrales numéricas y **la regla de Simpson compuesta 3/8**. Los resultados de éste HandsOn pueden ser encontrados [aquí](https://github.com/jjosealf94/Scripts/blob/master/HandsOn11/ReglaDeSimpson.ipynb)
 
+>Error del método cómo O(h4)
 
+![imagen](https://raw.githubusercontent.com/jjosealf94/Imagenes/master/HO11_Simpson38.png)
 
+##30-Jun-2015
+###Clase
+En la clase se empezó a desarrollar métodos adaptativos para resolver ecuaciones diferenciales ordinarias. Se aprendió a usar **Runge-Kutta adaptativo** y los métodos de **Adams-Bashforth.** Finalmente se aprendieron a usar las funciones del módulo `scipy.integrate` **ode()** y **odeint()**
 
+**Runge Kutta adaptativo:** (Step doubling)
 
+* Se repite la estimación de Y(x+2h) con 2h para Y1 y con h para Y2
+* Estimación del error d=Y2-Y1
+* Extrapolación local para aumentar el orden del método
 
+**Adams-Bashforth**
+Es un método de múltiples pasos explicito usado para la solución numérica de ecuaciones ordinarias con valor inicial dado. Los métodos de múltiples pasos toman información de pasos previos para aumentar la eficiencia. Así, éstos métodos toman varios puntos anteriores y la derivadas para realizar los cálculos posteriores.
 
+>Implementación en python
 
+```
+def function(Y,t,n):
+	return #Function
 
+# f1 is the current slope, f2 it the one before and f3 the one before that one.
+def increment(f1,f2,f3):
+    global h
+    return  h/12.*(23*f1-16*f2+5*f3)
 
+f1 = function(Y,h,n)
+f2 = f1
+f3 = f1
+t=h
+gridSol=np.array([[t,Y[0],Y[1]]])
 
+for __ in range(numIter):
+  Y += increment(f1,f2,f3)
+  t+=h
+  # Actualizar los valores de f1, f2 y f3 para la siguiente iteración
+  f1, f2, f3 = f(Y,t,n), f1, f2
+        gridSol=np.append(gridSol,[[t,Y[0],Y[1]]],axis=0)
 
+```
+
+**ode() y odeint()**
+
+` odeint(func,y0,t,arg=(),...)`
+
+*Parameters:*
+func : callable(y, t0, ...)
+    Computes the derivative of y at t0.
+
+y0 : array
+    Initial condition on y (can be a vector).
+
+t : array
+    A sequence of time points for which to solve for y. The initial value point should be the first element of this sequence.
+
+args : tuple, optional
+    Extra arguments to pass to function.
+
+*Returns:*
+
+y : array, shape (len(t), len(y0))
+    Array containing the value of y for each desired time in t, with the initial value y0 in the first row.
+
+infodict : dict, only returned if full_output == True
+    Dictionary containing additional output information
+
+>Implementación en python
+
+```
+tmax=500
+times=np.linspace(0,500,1000)
+funsol,others=odeint(fun,[1.,0.],times,full_output=True,printmessg=True)
+
+```
 
 
 
